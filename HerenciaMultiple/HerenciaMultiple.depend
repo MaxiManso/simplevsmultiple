@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1695673063 source:c:\users\maxi-escritorio\desktop\herenciamultiple\main.cpp
+	<iostream>
+	"dto/ConsolaDeJuego.cpp"
+	"dto/DispositivoTactilPortatil.cpp"
+	"dto/NintendoSwitch.cpp"
+
+1695671857 c:\users\maxi-escritorio\desktop\herenciamultiple\dto\consoladejuego.cpp
+	<iostream>
+
+1695672728 c:\users\maxi-escritorio\desktop\herenciamultiple\dto\dispositivotactilportatil.cpp
+	<iostream>
+
+1695673109 c:\users\maxi-escritorio\desktop\herenciamultiple\dto\nintendoswitch.cpp
+	<iostream>
+
