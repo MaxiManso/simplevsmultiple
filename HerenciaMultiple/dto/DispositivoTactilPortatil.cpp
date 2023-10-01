@@ -23,53 +23,58 @@ class DispositivoTactilPortatil{
         void subirBrillo(int);
         void disminuirBrillo(int);
         void mostrarBateria();
+        bool virtual estaEncendida();
 
 };
 
+bool DispositivoTactilPortatil::estaEncendida(){
+    return encendida;
+}
+
 
 void DispositivoTactilPortatil::encender(){
-  //  if(encendida == false){
+    if(!estaEncendida()){
         encendida = true;
         cout<<"Encendiendo"<<endl;
- /*   }else{
+    }else{
         cout<<"El dispositivo ya se encuentra encendido."<<endl;
-    }*/
+    }
 }
 
 void DispositivoTactilPortatil::apagar(){
- //   if(encendida == true){
+    if(estaEncendida()){
         encendida = false;
         cout<<"Apagando"<<endl;
- /*   }else{
+    }else{
         cout<<"El dispositivo ya se encuentra apagado."<<endl;
-    }*/
+    }
 
 
 }
 
 void DispositivoTactilPortatil::copiar(string texto){
-  //  if(encendida == true){
+    if(estaEncendida()){
         portapapeles = texto;
         cout<<"texto copiado en el portapapeles."<<endl;
- /*   }else{
+    }else{
         cout<<"El dispositivo se encuentra apagado."<<endl;
-    }*/
+    }
 }
 
 void DispositivoTactilPortatil::pegar(){
-  //  if(encendida == true){
+    if(estaEncendida()){
         if(portapapeles != ""){
             cout<<"Texto pegado desde el portapapeles: "+portapapeles<<endl;
         }else{
             cout<<"El portapapeles esta vacio."<<endl;
         }
-  /*  }else{
+    }else{
         cout<<"El dispositivo se encuentra apagado."<<endl;
-    }*/
+    }
 }
 
 void DispositivoTactilPortatil::disminuirBrillo(int cantidad){
- //   if(encendida == true){
+    if(estaEncendida()){
         if (brillo - cantidad >= 0){
             brillo -= cantidad;
             cout<< "Brillo disminuido a "+std::to_string(brillo)+"%."<<endl;
@@ -77,13 +82,13 @@ void DispositivoTactilPortatil::disminuirBrillo(int cantidad){
             brillo = 0;
             cout<< "El brillo ha sido ajustado al minimo (0%)."<<endl;
         }
-  /*  }else{
+    }else{
         cout<<"El dispositivo se encuentra apagado."<<endl;
-    }*/
+    }
 }
 
 void DispositivoTactilPortatil::subirBrillo(int cantidad){
-  //  if(encendida == true){
+    if(estaEncendida()){
         if( brillo + cantidad <= 100){
             brillo += cantidad;
             cout<< "Brillo aumentado a "+std::to_string(brillo)+"%."<<endl;
@@ -91,17 +96,17 @@ void DispositivoTactilPortatil::subirBrillo(int cantidad){
             brillo = 100;
             cout<< "El brillo ha sido ajustado al maximo (100%)."<<endl;
         }
-  /*  }else{
+    }else{
         cout<<"El dispositivo se encuentra apagado."<<endl;
-    }*/
+    }
 }
 
 void DispositivoTactilPortatil::mostrarBateria(){
- //   if(encendida == true){
+    if(estaEncendida()){
         cout<<"Bateria actual: "+std::to_string(bateria)+"%."<<endl;
- /*   }else{
+    }else{
         cout<<"El dispositivo se encuentra apagado."<<endl;
-    }*/
+    }
 }
 
 string DispositivoTactilPortatil::toString(){

@@ -4,8 +4,10 @@ using namespace std;
 class ConsolaDeJuego{
 
     protected:
-    string juegoActual;
+//    bool encendidaCon;
     bool encendida;
+    string juegoActual;
+    string listaJuego[4];
 
     public:
     ConsolaDeJuego(){
@@ -19,16 +21,21 @@ class ConsolaDeJuego{
     void abrirJuego(string);
     void cerrarJuego();
     void jugar();
+    bool virtual estaEncendida();
+
 
 };
 
+bool ConsolaDeJuego::estaEncendida(){
+    return encendida;
+}
 
 string ConsolaDeJuego::toString(){
     cout<<"Encendida: "+std::to_string(encendida)+"| Juego: "+juegoActual<<endl;
 }
 
 void ConsolaDeJuego::encender(){
-    if(encendida == false){
+    if(!estaEncendida()){
         encendida = true;
         cout<<"Encendiendo"<<endl;
     }else{
@@ -37,7 +44,7 @@ void ConsolaDeJuego::encender(){
 }
 
 void ConsolaDeJuego::apagar(){
-    if(encendida == true){
+    if(estaEncendida()){
         encendida = false;
         cout<<"Apagando"<<endl;
     }else{
@@ -47,7 +54,7 @@ void ConsolaDeJuego::apagar(){
 }
 
 void ConsolaDeJuego::abrirJuego(string jue){
-    if(encendida == true){
+    if(estaEncendida()){
         if(juegoActual == ""){
             juegoActual = jue;
             cout<<"Juego "+juegoActual+ " abierto"<<endl;
@@ -68,7 +75,7 @@ void ConsolaDeJuego::abrirJuego(string jue){
 }
 
 void ConsolaDeJuego::cerrarJuego(){
-    if(encendida == true){
+    if(estaEncendida()){
             if(juegoActual != ""){
                 cout<<"Cerrando juego "+juegoActual<<endl;
                 juegoActual = "";
@@ -81,7 +88,7 @@ void ConsolaDeJuego::cerrarJuego(){
 }
 
 void ConsolaDeJuego::jugar(){
-    if(encendida == true){
+    if(estaEncendida()){
         if(juegoActual != ""){
             cout<<"jugando " + juegoActual<<endl;
         }else{
