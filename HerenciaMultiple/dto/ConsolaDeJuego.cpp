@@ -4,7 +4,6 @@ using namespace std;
 class ConsolaDeJuego{
 
     protected:
-//    bool encendidaCon;
     bool encendida;
     string juegoActual;
     string listaJuego[4];
